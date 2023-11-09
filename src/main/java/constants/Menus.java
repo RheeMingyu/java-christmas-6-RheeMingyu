@@ -8,16 +8,16 @@ public class Menus {
 		TAPAS("타파스",5500),
 		CAESAR_SALAD("시저샐러드",8000);
 		
-		private final String appetizer;
+		private final String dish;
 		private final int price;
 
-		Appetizer(String appetizer,int price) {
-			this.appetizer=appetizer;
+		Appetizer(String dish,int price) {
+			this.dish=dish;
 			this.price=price;
 		}
 		
-		public String dish() {
-			return appetizer;
+		public String appetizer() {
+			return dish;
 		}
 		public int price() {
 			return price;
@@ -31,16 +31,16 @@ public class Menus {
 		SEAFOOD_PASTA("해산물파스타",35000),
 		CHRISTRMAS_PASTA("크리스마스파스타",25000);
 		
-		private final String main;
+		private final String dish;
 		private final int price;
 
-		MainMenu(String main,int price) {
-			this.main=main;
+		MainMenu(String dish,int price) {
+			this.dish=dish;
 			this.price=price;
 		}
 		
-		public String dish() {
-			return main;
+		public String main() {
+			return dish;
 		}
 		public int price() {
 			return price;
@@ -52,16 +52,16 @@ public class Menus {
 		CHOCOLATE_CAKE("초코케이크",15000),
 		ICECREAM("아이스크림",5000);
 		
-		private final String dessert;
+		private final String dish;
 		private final int price;
 
-		Dessert(String dessert,int price) {
-			this.dessert=dessert;
+		Dessert(String dish,int price) {
+			this.dish=dish;
 			this.price=price;
 		}
 		
-		public String dish() {
-			return dessert;
+		public String dessert() {
+			return dish;
 		}
 		public int price() {
 			return price;
@@ -74,16 +74,16 @@ public class Menus {
 		RED_WINE("레드와인",60000),
 		CHAMPAGNE("샴페인",25000);
 		
-		private final String beverage;
+		private final String dish;
 		private final int price;
 		
-		Beverage(String beverage,int price) {
-			this.beverage=beverage;
+		Beverage(String dish,int price) {
+			this.dish=dish;
 			this.price=price;
 		}
 		
-		public String dish() {
-			return beverage;
+		public String beverage() {
+			return dish;
 		}
 		public int price() {
 			return price;
