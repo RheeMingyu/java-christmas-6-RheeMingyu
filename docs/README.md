@@ -9,6 +9,11 @@
     + 예외 처리
         - 날짜 입력 시 1~31의 정수가 아닌 데이터를 입력 시 적절한 예외 발생
         - 메뉴 입력 시 조건에 부합하지 않는 데이터 입력 시 적절한 예외 발생
+            + 메뉴 형식 예외 : (아래 arr1, arr2 등 참조)
+                - arr1 == null || arr1.length ==0
+                - arr2.split("-").length != 2
+                - arr2.split("-")[1]을 Integer parsing시 NumberFormatException 발생
+                - 기타 사항은 존재하지 않는 메뉴로 처리
     + 적절한 입력까지 입력 반복
 
 2. 주문 메뉴 출력
