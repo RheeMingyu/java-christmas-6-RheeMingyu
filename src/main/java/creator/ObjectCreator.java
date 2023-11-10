@@ -3,6 +3,7 @@ package creator;
 import features.Input;
 import features.Validator;
 import view.InputView;
+import view.OutputView;
 
 public class ObjectCreator {
 
@@ -16,5 +17,9 @@ public class ObjectCreator {
 	
 	public InputView reader() {
 		return new InputView();
+	}
+	
+	public OutputView announcer() {
+		return new OutputView();
 	}
 }
