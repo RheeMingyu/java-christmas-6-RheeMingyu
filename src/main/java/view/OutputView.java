@@ -38,13 +38,20 @@ public class OutputView {
 	
 	public void presentationFeedback() {
 		System.out.println("<증정 메뉴>");
-		System.out.println(CREATE.stat().presentOrNot(orders)+"\n");
+		System.out.println(giftOrNone());
+	}
+	
+	private String giftOrNone() {
+		if(CREATE.stat().deserveGift(orders)) {
+			return "샴페인 1개";
+		}
+		return "없음";
 	}
 	
 	public void discountDetailsFeedback() {
-		System.out.println("크리스마스 디데이 할인: ");
-		System.out.println("평일 할인: ");
-		System.out.println("특별 할인: ");
-		System.out.println("증정 이벤트: ");
+		//System.out.println("크리스마스 디데이 할인: ");
+		//System.out.println("평일 할인: ");
+		//System.out.println("특별 할인: ");
+		//System.out.println("증정 이벤트: ");
 	}
 }
