@@ -3,8 +3,8 @@ package constants;
 public class Constants {
 
 	//input 오류
-	public final static String INVALID_DATE_INPUT=ErrorMessages.INVALID_DATE_INPUT.detected();
-	public final static String INVALID_MENU_INPUT=ErrorMessages.INVALID_MENU_INPUT.detected();
+	public final static String INVALID_DATE_OUTPUT=ErrorMessages.INVALID_DATE_OUTPUT.detected();
+	public final static String INVALID_MENU_OUTPUT=ErrorMessages.INVALID_MENU_OUTPUT.detected();
 	
 	//메뉴 가격
 	public final static int MUSHROOM_SOUP_PRICE=Menus.Appetizer.BUTTON_MUSHROOM_SOUP.price();
