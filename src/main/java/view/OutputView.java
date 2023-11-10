@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class OutputView {
 	
-	Map<String, Integer> orders;
+	private Map<String, Integer> orders;
 
 	public void gameOpener() {
 		System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.");

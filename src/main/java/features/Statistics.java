@@ -11,6 +11,7 @@ public class Statistics {
 	
 	private int totalCostOrigin;
 	
+	//증정메뉴
 	public String presentOrNot(Map<String, Integer> orders) {
 		if(getTotalCostOrigin(orders)>=120000) {
 			return "샴페인 1개";
@@ -18,6 +19,7 @@ public class Statistics {
 		return "없음";
 	}
 
+	//할인전 총주문금액
 	public int getTotalCostOrigin(Map<String, Integer> orders) {		
 		for(Map.Entry<String, Integer> order:orders.entrySet()) {			
 			getSum(order.getKey(), order.getValue());
@@ -63,4 +65,12 @@ public class Statistics {
 			}
 		}
 	}
+	
+	//혜택내역
+	
+	//총혜택금액
+	
+	//할인후 예상결제금액
+	
+	//이벤트 배지
 }
