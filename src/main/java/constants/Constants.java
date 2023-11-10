@@ -22,6 +22,15 @@ public class Constants {
 	public final static int RED_WINE_PRICE=Menus.Beverage.RED_WINE.price();
 	public final static int CHAMPAGNE_PRICE=Menus.Beverage.CHAMPAGNE.price();
 	
+	//할인가정보
+	public final static int D_DAY_DISCOUNT_BASIC=-1000;
+	public final static int D_DAY_DISCOUNT_PER_DAY=-100;
+	public final static int WEEK_DISCOUNT=-2023;
+	public final static int SPECIAL_DISCOUNT=-1000;
+	public final static int DISCOUNT_TYPES_CNT=4;
+	
+	public final static int DAY_OF_A_WEEK=7;
+	
 	//메뉴명 enum메서드로 직접 비교
 	/*public final static String MUSHROOM_SOUP=Menus.Appetizer.BUTTON_MUSHROOM_SOUP.dish();
 	public final static String TAPAS=Menus.Appetizer.TAPAS.dish();
