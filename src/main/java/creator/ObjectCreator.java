@@ -1,6 +1,7 @@
 package creator;
 
 import features.Input;
+import features.Statistics;
 import features.Validator;
 import view.InputView;
 import view.OutputView;
@@ -21,5 +22,9 @@ public class ObjectCreator {
 	
 	public OutputView announcer() {
 		return new OutputView();
+	}
+	
+	public Statistics stat() {
+		return new Statistics();
 	}
 }
