@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Input {
 
-	public String inputDate() {
+	public String inputDevice() {
 		return flexibleAcceptance(Console.readLine());
 	}
 	

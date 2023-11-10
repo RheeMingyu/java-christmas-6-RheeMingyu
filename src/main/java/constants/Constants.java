@@ -1,5 +1,7 @@
 package constants;
 
+import creator.ObjectCreator;
+
 public class Constants {
 
 	//input 오류
@@ -33,4 +35,5 @@ public class Constants {
 	public final static String ZERO_COLA=Menus.Beverage.ZERO_COLA.dish();
 	public final static String RED_WINE=Menus.Beverage.RED_WINE.dish();
 	public final static String CHAMPAGNE=Menus.Beverage.CHAMPAGNE.dish();*/
+	public final static ObjectCreator CREATE=new ObjectCreator();
 }
