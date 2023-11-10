@@ -2,6 +2,8 @@ package view;
 
 import static constants.Constants.*;
 
+import java.util.Map;
+
 public class OutputView {
 
 	public void gameOpener() {
@@ -15,5 +17,14 @@ public class OutputView {
 	public void warning(IllegalArgumentException e) {
 		System.out.println(e.getMessage());
 		e.printStackTrace();
+	}
+	
+	public void menuOrderedFeedback() {
+		System.out.println("<주문 메뉴>");
+		Map<String, Integer> orders=CREATE.reader().readOrder();
+		
+		for(Map.Entry<String, Integer> order:orders.entrySet()) {
+			System.out.println(order.getKey()+" "+order.getValue()+"개");
+		}
 	}
 }
