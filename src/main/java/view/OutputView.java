@@ -33,6 +33,18 @@ public class OutputView {
 	
 	public void originalCostFeedback() {
 		System.out.println("<할인 전 총주문 금액>");
-		System.out.println(String.format("%,d원", CREATE.stat().getTotalCostOrigin(orders)));
+		System.out.println(String.format("%,d원", CREATE.stat().getTotalCostOrigin(orders))+"\n");
+	}
+	
+	public void presentationFeedback() {
+		System.out.println("<증정 메뉴>");
+		System.out.println(CREATE.stat().presentOrNot(orders)+"\n");
+	}
+	
+	public void discountDetailsFeedback() {
+		System.out.println("크리스마스 디데이 할인: ");
+		System.out.println("평일 할인: ");
+		System.out.println("특별 할인: ");
+		System.out.println("증정 이벤트: ");
 	}
 }

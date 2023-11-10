@@ -10,6 +10,13 @@ import constants.Menus.MainMenu;
 public class Statistics {
 	
 	private int totalCostOrigin;
+	
+	public String presentOrNot(Map<String, Integer> orders) {
+		if(getTotalCostOrigin(orders)>=120000) {
+			return "샴페인 1개";
+		}
+		return "없음";
+	}
 
 	public int getTotalCostOrigin(Map<String, Integer> orders) {		
 		for(Map.Entry<String, Integer> order:orders.entrySet()) {			
