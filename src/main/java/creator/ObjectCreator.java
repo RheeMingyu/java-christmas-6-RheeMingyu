@@ -29,7 +29,7 @@ public class ObjectCreator {
 		return new OutputView();
 	}
 	
-	public Statistics stat() {
-		return new Statistics(); //dto 활둉시작하면 인자로 dto받음
+	public Statistics stat(EventData dto) {
+		return new Statistics(dto);
 	}
 }

@@ -1,43 +1,22 @@
 package data;
 
-import static constants.Constants.CREATE;
-
 import java.util.Map;
 
 public class EventData {
-	
-	//날짜 데이터
-	private int visitDate=CREATE.reader().readDate();
-	//주문 데이터
-	private Map<String, Integer> orders=CREATE.reader().readOrder();
-	
-	private int totalCostOrigin;
-	private boolean presentation;
-	private int[] discountDetails;
+
+	private int visitDate;
+	private Map<String, Integer> orders;
 	
 	public int getVisitDate() {
 		return visitDate;
 	}
+	public void setVisitDate(int visitDate) {
+		this.visitDate = visitDate;
+	}
 	public Map<String, Integer> getOrders() {
 		return orders;
 	}
-
-	public int getTotalCostOrigin() {
-		return totalCostOrigin;
-	}
-	public void setTotalCostOrigin(int totalCostOrigin) {
-		this.totalCostOrigin = totalCostOrigin;
-	}
-	public boolean isPresentation() {
-		return presentation;
-	}
-	public void setPresentation(boolean presentation) {
-		this.presentation = presentation;
-	}
-	public int[] getDiscountDetails() {
-		return discountDetails;
-	}
-	public void setDiscountDetails(int[] discountDetails) {
-		this.discountDetails = discountDetails;
+	public void setOrders(Map<String, Integer> orders) {
+		this.orders = orders;
 	}
 }

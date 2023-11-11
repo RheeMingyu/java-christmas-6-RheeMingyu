@@ -9,32 +9,55 @@ import features.Statistics;
 
 public class OutputView {
 	
-	private Map<String, Integer> orders;
-	
-	private Statistics stat=CREATE.stat();
-	
-	//private EventData dto;
-	
-	/*public OutputView(EventData dto) {
-		this.dto=dto;
-	}*/
+	private static Map<String, Integer> orders;
+	private static int visitDate;
 
-	public void gameOpener() {
+	private EventData dto=CREATE.dto();
+	private Statistics stat;
+
+	public void viewPlayer() {
+		gameOpener();
+		infoReader();
+		plannerOpener();
+		feedback();
+	}
+
+	private void gameOpener() {
 		System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.");
 	}
 	
-	public void plannerOpener() {
-		System.out.println("12월 "+CREATE.reader().readDate()+"일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n");
+	private void infoReader() {
+		dateReader();
+		orderReader();
 	}
 	
-	public void warning(IllegalArgumentException e) {
-		System.out.println(e.getMessage());
-		e.printStackTrace();
+	private void dateReader() {
+		dto.setVisitDate(CREATE.reader().readDate());
+		visitDate=dto.getVisitDate();
 	}
 	
-	public void menuOrderedFeedback() {
+	private void orderReader() {
+		dto.setOrders(CREATE.reader().readOrder());
+		orders=dto.getOrders();
+	}
+	
+	private void plannerOpener() {
+		System.out.println("12월 "+visitDate+"일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n");
+		stat=CREATE.stat(dto);
+	}
+	
+	private void feedback() {
+		menuOrderedFeedback();
+		originalCostFeedback();
+		presentationFeedback();
+		discountDetailsFeedback();
+		totalDiscountFeedback();
+		resultCostFeedback();
+		badgeFeedback();
+	}
+	
+	private void menuOrderedFeedback() {
 		System.out.println("<주문 메뉴>");
-		orders=CREATE.reader().readOrder();
 		
 		for(Map.Entry<String, Integer> order:orders.entrySet()) {
 			System.out.println(order.getKey()+" "+order.getValue()+"개");
@@ -42,25 +65,26 @@ public class OutputView {
 		System.out.println();
 	}
 	
-	public void originalCostFeedback() {
+	private void originalCostFeedback() {
 		System.out.println("<할인 전 총주문 금액>");
-		System.out.println(String.format("%,d원", stat.getTotalCostOrigin(orders))+"\n");
+		System.out.println(String.format("%,d원", stat.getTotalCostOrigin())+"\n");
 	}
 	
-	public void presentationFeedback() {
+	private void presentationFeedback() {
 		System.out.println("<증정 메뉴>");
-		System.out.println(giftOrNone());
+		System.out.println(giftOrNone()+"\n");
 	}
 	
 	private String giftOrNone() {
-		if(CREATE.stat().deserveGift(orders)) {
+		if(stat.deserveGift()) {
 			return "샴페인 1개";
 		}
 		return "없음";
 	}
 	
-	public void discountDetailsFeedback() {
+	private void discountDetailsFeedback() {
 		int [] discountDetails=stat.getDiscountDetails();
+		System.out.println("<혜택 내역>");
 		
 		if(discountAvailable(discountDetails)) {
 			d_dayFeedback(discountDetails);
@@ -111,18 +135,23 @@ public class OutputView {
 		}
 	}
 	
-	public void totalDiscountFeedback() {
+	private void totalDiscountFeedback() {
 		System.out.println("<총혜택 금액>");
 		System.out.println(stat.getTotalDiscount()+"원\n");
 	}
 	
-	public void resultCostFeedback() {
+	private void resultCostFeedback() {
 		System.out.println("<할인 후 예상 결제 금액>");
 		System.out.println(stat.getResultCost()+"원\n");
 	}
 	
-	public void badgeFeedback() {
+	private void badgeFeedback() {
 		System.out.println("<12월 이벤트 배지>");
 		System.out.println(stat.badgeReceivable());
+	}
+	
+	public void warning(IllegalArgumentException e) {
+		System.out.println(e.getMessage());
+		e.printStackTrace();
 	}
 }

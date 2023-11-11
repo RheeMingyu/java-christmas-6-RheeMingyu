@@ -10,37 +10,35 @@ import data.EventData;
 
 import static constants.Constants.*;
 
-public class Statistics {
+public class Statistics {//dto빨리
 	
-	/*public Statistics(EventData dto) {
+	public Statistics(EventData dto) {
+		this.visitDate=dto.getVisitDate();
 		this.orders=dto.getOrders();
-		this.totalCostOrigin=dto.getTotalCostOrigin();
-		this.discountDetails=dto.getDiscountDetails();
-		this.dayDiscriminator=dto.getVisitDate()%DAY_OF_A_WEEK;
-	}*/ //아직은 사용x..추후에 전부 dto로 옮길예정
+	}
 	
-	//dto로 옮길 데이터
 	private Map<String, Integer> orders;
-	private int totalCostOrigin;
-	private int[] discountDetails=new int[5];
-	private final int visitDate=CREATE.reader().readDate();
-	private final int dayDiscriminator=visitDate%DAY_OF_A_WEEK;
+	private int visitDate;
+	private int dayDiscriminator=visitDate%DAY_OF_A_WEEK;
 	
 	//여기서만 사용할 데이터
+	private int totalCostOrigin;
+	private int[] discountDetails=new int[5];
+	
 	private int dessertOrderedCnt;
 	private int mainMenuOrderedCnt;
 	
 	//증정메뉴
-	public boolean deserveGift(Map<String, Integer> orders) {
-		if(getTotalCostOrigin(orders)>=120000) {
+	public boolean deserveGift() {
+		if(getTotalCostOrigin()>=120000) {
 			return true;
 		}
 		return false;
 	}
 
 	//할인전 총주문금액
-	public int getTotalCostOrigin(Map<String, Integer> orders) {		
-		for(Map.Entry<String, Integer> order:orders.entrySet()) {			
+	public int getTotalCostOrigin() {		
+		for(Map.Entry<String, Integer> order:orders.entrySet()) {
 			getSum(order.getKey(), order.getValue());
 		}
 		return totalCostOrigin;
@@ -96,8 +94,8 @@ public class Statistics {
 		discountDetails[0]=d_dayDiscount();
 		discountDetails[1]=weekDiscount();
 		discountDetails[2]=specialDiscount();
-		discountDetails[3]=giftDiscount(orders);
-		
+		discountDetails[3]=giftDiscount();
+
 		return discountDetails;
 	}
 	
@@ -131,8 +129,8 @@ public class Statistics {
 		return 0;
 	}
 	
-	private int giftDiscount(Map<String, Integer> orders) {
-		if(deserveGift(orders)) {
+	private int giftDiscount() {
+		if(deserveGift()) {
 			return -Beverage.CHAMPAGNE.price();
 		}
 		return 0;
@@ -150,7 +148,7 @@ public class Statistics {
 	
 	//할인후 예상결제금액
 	public int getResultCost() {
-		return getTotalCostOrigin(orders)-getTotalDiscount();
+		return getTotalCostOrigin()+getTotalDiscount();
 	}
 	
 	//이벤트 배지

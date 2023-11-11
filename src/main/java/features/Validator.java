@@ -13,6 +13,7 @@ import constants.Menus.MainMenu;
 public class Validator {
 	
 	private static Map<String, Integer> orders=new HashMap<>();
+	private static int duplicateChecker;
 
 	public int dateValidator(String input) {
 		return validDayOfDecember(isNumber(input));
@@ -94,12 +95,16 @@ public class Validator {
 	}
 	
 	private void existentDish() {
+		duplicateChecker=orders.size();
 		for(String dish:orders.keySet()) {
 			menuChecker(dish);
 		}
+		if(duplicateChecker!=0) {
+			throw new IllegalArgumentException(INVALID_MENU_OUTPUT);
+		}
 	}
 	
-	private void menuChecker(String dish) {
+	private void menuChecker(String dish) {		
 		appetizerCheker(dish);
 		mainMenuChecker(dish);
 		dessertChecker(dish);
@@ -108,32 +113,32 @@ public class Validator {
 	
 	private void appetizerCheker(String dish) {
 		for(Appetizer ap:Appetizer.values()) {
-			if(!ap.appetizer().equals(dish)) {
-				throw new IllegalArgumentException(INVALID_MENU_OUTPUT);
+			if(ap.appetizer().equals(dish)) {
+				duplicateChecker--;
 			}
 		}
 	}
 	
 	private void mainMenuChecker(String dish) {
 		for(MainMenu ma:MainMenu.values()) {
-			if(!ma.main().equals(dish)) {
-				throw new IllegalArgumentException(INVALID_MENU_OUTPUT);
+			if(ma.main().equals(dish)) {
+				duplicateChecker--;
 			}
 		}
 	}
 	
 	private void dessertChecker(String dish) {
 		for(Dessert de:Dessert.values()) {
-			if(!de.dessert().equals(dish)) {
-				throw new IllegalArgumentException(INVALID_MENU_OUTPUT);
+			if(de.dessert().equals(dish)) {
+				duplicateChecker--;
 			}
 		}
 	}
 	
 	private void beverageChecker(String dish) {
 		for(Beverage be:Beverage.values()) {
-			if(!be.beverage().equals(dish)) {
-				throw new IllegalArgumentException(INVALID_MENU_OUTPUT);
+			if(be.beverage().equals(dish)) {
+				duplicateChecker--;
 			}
 		}
 	}

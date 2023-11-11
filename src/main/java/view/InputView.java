@@ -15,6 +15,7 @@ public class InputView {
 	private int dateInputRepeater() {
 		while(true) {
 			try {
+				//값 생성과 동시에 dto저장
 				return CREATE.valid().dateValidator(CREATE.input().inputDevice());
 			} catch(IllegalArgumentException e) {
 				CREATE.announcer().warning(e);
@@ -31,6 +32,7 @@ public class InputView {
 	private Map<String, Integer> orderInputRepeater() {
 		while(true) {
 			try {
+				//dto저장
 				return CREATE.valid().orderValidator(CREATE.input().inputDevice());
 			} catch(IllegalArgumentException e) {
 				CREATE.announcer().warning(e);
