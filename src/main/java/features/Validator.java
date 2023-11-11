@@ -12,7 +12,7 @@ import constants.Menus.MainMenu;
 
 public class Validator {
 	
-	private static Map<String, Integer> orders=new HashMap<>();
+	private static Map<String, Integer> orders;
 	private static int duplicateChecker;
 
 	public int dateValidator(String input) {
@@ -36,18 +36,24 @@ public class Validator {
 	
 	public Map<String, Integer> orderValidator(String input){
 		String [] wholeOrdersSplitted=splitOrders(input);
+		orders=new HashMap<String, Integer>();
 		
 		for(String individual:wholeOrdersSplitted) {
 			finalOrderDetails(dishAndServings(individual));
 		}
-		existentDish();
-		noDuplicates(wholeOrdersSplitted);
-		lessThanTwenty();
-		//기타등등 아직 미완의 메서드임
+		conformToRegulations(wholeOrdersSplitted);
+
 		return orders;
 	}
 	
+	private void conformToRegulations(String [] wholeOrdersSplitted) {
+		existentDish();
+		noDuplicates(wholeOrdersSplitted);
+		lessThanTwenty();
+	}
+	
 	private void noDuplicates(String[] wholeOrders) {
+		System.out.println("test!!!:"+wholeOrders.length+","+orders.size()+"!!!!!");
 		if(wholeOrders.length!=orders.size()) {
 			throw new IllegalArgumentException(INVALID_MENU_OUTPUT);
 		}
