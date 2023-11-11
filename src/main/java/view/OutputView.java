@@ -108,41 +108,42 @@ public class OutputView {
 	
 	private void d_dayFeedback(int [] discountDetails) {
 		if(discountDetails[0]!=0) {
-			System.out.println("크리스마스 디데이 할인: "+discountDetails[0]+"원");
+			System.out.println(String.format("크리스마스 디데이 할인: %,d원", discountDetails[0]));
 		}
 	}
 	
 	private void weekFeedback(int [] discountDetails) {
+
 		if(discountDetails[1]!=0) {
 			if(discountDetails[4]==1) {
-				System.out.println("주말 할인: "+discountDetails[1]+"원");
+				System.out.println(String.format("주말 할인: %,d원", discountDetails[1]));
 			}
 			if(discountDetails[4]==0) {
-				System.out.println("평일 할인: "+discountDetails[1]+"원");
+				System.out.println(String.format("평일 할인: %,d원", discountDetails[1]));
 			}
 		}
 	}
 	
 	private void specialFeedback(int [] discountDetails) {
 		if(discountDetails[2]!=0) {
-			System.out.println("특별 할인: "+discountDetails[2]+"원");
+			System.out.println(String.format("특별 할인: %,d원", discountDetails[2]));
 		}
 	}
 	
 	private void giftFeedback(int [] discountDetails) {
 		if(discountDetails[3]!=0) {
-			System.out.println("증정 이벤트: "+discountDetails[3]+"원\n");
+			System.out.println(String.format("증정 이벤트: %,d원\n", discountDetails[3]));
 		}
 	}
 	
 	private void totalDiscountFeedback() {
 		System.out.println("<총혜택 금액>");
-		System.out.println(stat.getTotalDiscount()+"원\n");
+		System.out.println(String.format("%,d원\n", stat.getTotalDiscount()));
 	}
 	
 	private void resultCostFeedback() {
 		System.out.println("<할인 후 예상 결제 금액>");
-		System.out.println(stat.getResultCost()+"원\n");
+		System.out.println(String.format("%,d원\n", stat.getResultCost()));
 	}
 	
 	private void badgeFeedback() {
