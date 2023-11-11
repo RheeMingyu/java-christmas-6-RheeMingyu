@@ -30,19 +30,6 @@ public class Constants {
 	public final static int DISCOUNT_TYPES_CNT=4;
 	
 	public final static int DAY_OF_A_WEEK=7;
-	
-	//메뉴명 enum메서드로 직접 비교
-	/*public final static String MUSHROOM_SOUP=Menus.Appetizer.BUTTON_MUSHROOM_SOUP.dish();
-	public final static String TAPAS=Menus.Appetizer.TAPAS.dish();
-	public final static String CAESAR_SALAD=Menus.Appetizer.CAESAR_SALAD.dish();
-	public final static String TBONE_STEAK=Menus.MainMenu.TBONE_STEAK.dish();
-	public final static String BARBECUE_RIP=Menus.MainMenu.BARBECUE_RIP.dish();
-	public final static String SEAFOOD_PASTA=Menus.MainMenu.SEAFOOD_PASTA.dish();
-	public final static String CHRISTRMAS_PASTA=Menus.MainMenu.CHRISTRMAS_PASTA.dish();
-	public final static String CHOCOLATE_CAKE=Menus.Dessert.CHOCOLATE_CAKE.dish();
-	public final static String ICECREAM=Menus.Dessert.ICECREAM.dish();
-	public final static String ZERO_COLA=Menus.Beverage.ZERO_COLA.dish();
-	public final static String RED_WINE=Menus.Beverage.RED_WINE.dish();
-	public final static String CHAMPAGNE=Menus.Beverage.CHAMPAGNE.dish();*/
+
 	public final static ObjectCreator CREATE=new ObjectCreator();
 }

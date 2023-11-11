@@ -19,10 +19,10 @@ public class Statistics {//dto빨리
 	
 	private Map<String, Integer> orders;
 	private int visitDate;
-	private int dayDiscriminator=visitDate%DAY_OF_A_WEEK;
 	
-	//여기서만 사용할 데이터
+	//처리요구 데이터
 	private int totalCostOrigin;
+	private int totalDiscount;
 	private int[] discountDetails=new int[5];
 	
 	private int dessertOrderedCnt;
@@ -30,7 +30,7 @@ public class Statistics {//dto빨리
 	
 	//증정메뉴
 	public boolean deserveGift() {
-		if(getTotalCostOrigin()>=120000) {
+		if(totalCostOrigin>=120000) {
 			return true;
 		}
 		return false;
@@ -60,23 +60,19 @@ public class Statistics {//dto빨리
 	}
 	
 	private void mainMenuCost(String dish,int servings) {
-		mainMenuOrderedCnt=0;
-		
 		for(MainMenu ma:MainMenu.values()) {
 			if(ma.main().equals(dish)) {
 				totalCostOrigin+=servings*ma.price();
-				mainMenuOrderedCnt++;
+				mainMenuOrderedCnt+=servings;
 			}
 		}
 	}
 	
 	private void dessertCost(String dish,int servings) {
-		dessertOrderedCnt=0;
-		
 		for(Dessert de:Dessert.values()) {
 			if(de.dessert().equals(dish)) {
 				totalCostOrigin+=servings*de.price();
-				dessertOrderedCnt++;
+				dessertOrderedCnt+=servings;
 			}
 		}
 	}
@@ -115,15 +111,15 @@ public class Statistics {//dto빨리
 		return dessertOrderedCnt*WEEK_DISCOUNT;
 	}
 	
-	private boolean isWeekend() {		
-		if(dayDiscriminator==1||dayDiscriminator==2) {
+	private boolean isWeekend() {
+		if(visitDate%DAY_OF_A_WEEK==1||visitDate%DAY_OF_A_WEEK==2) {
 			return true;
 		}
 		return false;
 	}
 	
 	private int specialDiscount() {
-		if(dayDiscriminator==3||visitDate==25) {
+		if(visitDate%DAY_OF_A_WEEK==3||visitDate==25) {
 			return SPECIAL_DISCOUNT;
 		}
 		return 0;
@@ -137,29 +133,27 @@ public class Statistics {//dto빨리
 	}
 	
 	//총혜택금액
-	public int getTotalDiscount() {
-		int sum=0;
-		
+	public int getTotalDiscount() {		
 		for(int i=0;i<DISCOUNT_TYPES_CNT;i++) {
-			sum+=discountDetails[i];
+			totalDiscount+=discountDetails[i];
 		}
-		return sum;
+		return totalDiscount;
 	}
 	
 	//할인후 예상결제금액
 	public int getResultCost() {
-		return getTotalCostOrigin()+getTotalDiscount();
+		return totalCostOrigin+totalDiscount;
 	}
 	
 	//이벤트 배지
 	public String badgeReceivable() {
-		if(getResultCost()>=5000&&getResultCost()<10000) {
+		if(-totalDiscount>=5000&&-totalDiscount<10000) {
 			return "별";
 		}
-		if(getResultCost()>=10000&&getResultCost()<20000) {
+		if(-totalDiscount>=10000&&-totalDiscount<20000) {
 			return "트리";
 		}
-		if(getResultCost()>=20000) {
+		if(-totalDiscount>=20000) {
 			return "산타";
 		}
 		return "없음";

@@ -16,14 +16,14 @@ public class Validator {
 	private static int duplicateChecker;
 
 	public int dateValidator(String input) {
-		return validDayOfDecember(isNumber(input));
+		return validDayOfDecember(isNumber(input,INVALID_DATE_OUTPUT));
 	}
 	
-	private int isNumber(String input) {
+	private int isNumber(String input,String print) {
 		try {
 			return Integer.parseInt(input);
 		} catch(NumberFormatException e) {
-			throw new IllegalArgumentException(INVALID_DATE_OUTPUT);
+			throw new IllegalArgumentException(print);
 		}
 	}
 	
@@ -84,7 +84,7 @@ public class Validator {
 	}
 	
 	private void finalOrderDetails(String[] dish_servings){
-		orders.put(dish_servings[0], moreThanOne(isNumber(dish_servings[1])));	
+		orders.put(dish_servings[0], moreThanOne(isNumber(dish_servings[1],INVALID_MENU_OUTPUT)));	
 	}
 	
 	private int moreThanOne(int servings) {
