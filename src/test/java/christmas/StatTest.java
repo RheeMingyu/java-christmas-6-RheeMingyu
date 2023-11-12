@@ -29,19 +29,27 @@ public class StatTest {
 	private Statistics teststat() {
 		testdto.setVisitDate(testdate);
 		testdto.setOrders(testorders);
-		
 		return CREATE.stat(testdto);
 	}
 
 	@DisplayName("할인 전 총주문 금액 계산 가능.")
 	@Test
-	void originalCost() {		
+	void originalCost() {
 		assertEquals(315500, teststat().getTotalCostOrigin());
 	}
 	
 	@DisplayName("증정 이벤트 당첨 여부 계산 가능.")
 	@Test
 	void presentation() {
-		assertTrue(teststat().deserveGift());
+		Statistics teststat=teststat();
+		teststat.getTotalCostOrigin();
+		
+		assertTrue(teststat.deserveGift());
+	}
+	
+	@DisplayName("입력 데이터를 처리해 세부 할인 내역을 출력할 수 있다.")
+	@Test
+	void dicountList() {
+		
 	}
 }
