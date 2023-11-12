@@ -50,6 +50,38 @@ public class StatTest {
 	@DisplayName("입력 데이터를 처리해 세부 할인 내역을 출력할 수 있다.")
 	@Test
 	void dicountList() {
+		Statistics teststat=teststat();
+		teststat.getTotalCostOrigin();
+		int [] testdetails=teststat.getDiscountDetails();
 		
+		assertTrue(
+			(testdetails[0]==-3400)&&
+			(testdetails[1]==-8092)&&
+			(testdetails[2]==-1000)&&
+			(testdetails[3]==-25000)&&
+			(testdetails[4]==0)
+		);
+	}
+	
+	@DisplayName("할인 후 예상 결재 금액을 계산할 수 있다.")
+	@Test
+	void customerPrice() {
+		Statistics teststat=teststat();
+		teststat.getTotalCostOrigin();
+		teststat.getDiscountDetails();
+		teststat.getTotalDiscount();
+		
+		assertEquals(278008, teststat.getResultCost());
+	}
+	
+	@DisplayName("이벤트 배지를 정확히 계산할 수 있다.")
+	@Test
+	void correctBadge() {
+		Statistics teststat=teststat();
+		teststat.getTotalCostOrigin();
+		teststat.getDiscountDetails();
+		teststat.getTotalDiscount();
+		
+		assertEquals("산타", teststat.badgeReceivable());
 	}
 }
