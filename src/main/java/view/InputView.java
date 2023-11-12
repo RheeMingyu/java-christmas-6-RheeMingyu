@@ -12,6 +12,7 @@ public class InputView {
 		return dateInputRepeater();
 	}
 	
+	//while 반복문 내에서 try catch 사용하기 위해서는 Console.readLine()을 밖으로 빼서 인자로 넣기 어려움
 	private int dateInputRepeater() {
 		while(true) {
 			try {
