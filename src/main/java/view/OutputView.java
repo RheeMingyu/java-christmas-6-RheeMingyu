@@ -87,14 +87,18 @@ public class OutputView {
 		System.out.println("<혜택 내역>");
 		
 		if(discountAvailable(discountDetails)) {
-			d_dayFeedback(discountDetails);
-			weekFeedback(discountDetails);
-			specialFeedback(discountDetails);
-			giftFeedback(discountDetails);
+			discountBundle(discountDetails);
 		}
 		if(!discountAvailable(discountDetails)) {
 			System.out.println("없음\n");
 		}
+	}
+	
+	private void discountBundle(int [] discountDetails) {
+		d_dayFeedback(discountDetails);
+		weekFeedback(discountDetails);
+		specialFeedback(discountDetails);
+		giftFeedback(discountDetails);
 	}
 	
 	private boolean discountAvailable(int [] discountDetails) {
