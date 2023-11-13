@@ -53,7 +53,7 @@ public class Validator {
 	}
 	
 	private void noDuplicates(String[] wholeOrders) {
-		System.out.println("test!!!:"+wholeOrders.length+","+orders.size()+"!!!!!");
+		//System.out.println("test!!!:"+wholeOrders.length+","+orders.size()+"!!!!!");
 		if(wholeOrders.length!=orders.size()) {
 			throw new IllegalArgumentException(INVALID_MENU_OUTPUT);
 		}
