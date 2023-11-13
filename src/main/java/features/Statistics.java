@@ -112,14 +112,14 @@ public class Statistics {//dto빨리
 	}
 	
 	private boolean isWeekend() {
-		if(visitDate%DAYS_OF_A_WEEK==1||visitDate%DAYS_OF_A_WEEK==2) {
+		if(visitDate%DAYS_OF_A_WEEK==FRIDAY_METER||visitDate%DAYS_OF_A_WEEK==SATURDAY_METER) {
 			return true;
 		}
 		return false;
 	}
 	
 	private int specialDiscount() {
-		if(visitDate%DAYS_OF_A_WEEK==3||visitDate==25) {
+		if(visitDate%DAYS_OF_A_WEEK==SUNDAY_METER||visitDate==DATE_OF_CHRISTMAS) {
 			return SPECIAL_DISCOUNT;
 		}
 		return 0;

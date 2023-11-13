@@ -30,6 +30,10 @@ public class Constants {
 	public final static int DISCOUNT_TYPES_CNT=4;
 	
 	public final static int DAYS_OF_A_WEEK=7;
+	public final static int SUNDAY_METER=3;
+	public final static int SATURDAY_METER=2;
+	public final static int FRIDAY_METER=1;
+	public final static int DATE_OF_CHRISTMAS=25;
 
 	public final static ObjectCreator CREATE=new ObjectCreator();
 }
