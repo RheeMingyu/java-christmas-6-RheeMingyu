@@ -29,7 +29,7 @@ public class Constants {
 	public final static int SPECIAL_DISCOUNT=-1000;
 	public final static int DISCOUNT_TYPES_CNT=4;
 	
-	public final static int DAY_OF_A_WEEK=7;
+	public final static int DAYS_OF_A_WEEK=7;
 
 	public final static ObjectCreator CREATE=new ObjectCreator();
 }
