@@ -15,10 +15,12 @@ public class Statistics {//dto빨리
 	public Statistics(EventData dto) {
 		this.visitDate=dto.getVisitDate();
 		this.orders=dto.getOrders();
+		this.day_week_meter=visitDate%DAYS_OF_A_WEEK;
 	}
 	
 	private Map<String, Integer> orders;
 	private int visitDate;
+	private int day_week_meter;
 	
 	//처리요구 데이터
 	private int totalCostOrigin;
@@ -112,14 +114,14 @@ public class Statistics {//dto빨리
 	}
 	
 	private boolean isWeekend() {
-		if(visitDate%DAYS_OF_A_WEEK==FRIDAY_METER||visitDate%DAYS_OF_A_WEEK==SATURDAY_METER) {
+		if(day_week_meter==FRIDAY_METER||day_week_meter==SATURDAY_METER) {
 			return true;
 		}
 		return false;
 	}
 	
 	private int specialDiscount() {
-		if(visitDate%DAYS_OF_A_WEEK==SUNDAY_METER||visitDate==DATE_OF_CHRISTMAS) {
+		if(day_week_meter==SUNDAY_METER||visitDate==DATE_OF_CHRISTMAS) {
 			return SPECIAL_DISCOUNT;
 		}
 		return 0;
