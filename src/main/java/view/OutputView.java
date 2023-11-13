@@ -90,8 +90,9 @@ public class OutputView {
 			discountBundle(discountDetails);
 		}
 		if(!discountAvailable(discountDetails)) {
-			System.out.println("없음\n");
+			System.out.println("없음");
 		}
+		System.out.println();
 	}
 	
 	private void discountBundle(int [] discountDetails) {
@@ -136,7 +137,7 @@ public class OutputView {
 	
 	private void giftFeedback(int [] discountDetails) {
 		if(discountDetails[3]!=0) {
-			System.out.println(String.format("증정 이벤트: %,d원\n", discountDetails[3]));
+			System.out.println(String.format("증정 이벤트: %,d원", discountDetails[3]));
 		}
 	}
 	
