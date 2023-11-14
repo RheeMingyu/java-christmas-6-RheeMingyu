@@ -1,7 +1,7 @@
 package creator;
 
-import controller.Controller;
 import data.EventData;
+import features.Controller;
 import features.Input;
 import features.Statistics;
 import features.Validator;
