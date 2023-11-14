@@ -15,18 +15,11 @@ public class OutputView {
 	private EventData dto=CREATE.dto();
 	private Statistics stat;
 
-	public void viewPlayer() {
-		gameOpener();
-		infoReader();
-		plannerOpener();
-		feedback();
-	}
-
-	private void gameOpener() {
+	public void gameOpener() {
 		System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.");
 	}
 	
-	private void infoReader() {
+	public void infoReader() {
 		dateReader();
 		orderReader();
 	}
@@ -41,12 +34,12 @@ public class OutputView {
 		orders=dto.getOrders();
 	}
 	
-	private void plannerOpener() {
+	public void plannerOpener() {
 		System.out.println("12월 "+visitDate+"일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n");
 		stat=CREATE.stat(dto);
 	}
 	
-	private void feedback() {
+	public void feedback() {
 		menuOrderedFeedback();
 		originalCostFeedback();
 		presentationFeedback();

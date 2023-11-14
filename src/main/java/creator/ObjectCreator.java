@@ -1,5 +1,6 @@
 package creator;
 
+import controller.Controller;
 import data.EventData;
 import features.Input;
 import features.Statistics;
@@ -31,5 +32,9 @@ public class ObjectCreator {
 	
 	public Statistics stat(EventData dto) {
 		return new Statistics(dto);
+	}
+	
+	public Controller player() {
+		return new Controller();
 	}
 }
