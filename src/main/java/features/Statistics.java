@@ -10,7 +10,7 @@ import data.EventData;
 
 import static constants.Constants.*;
 
-public class Statistics {//dto빨리
+public class Statistics {
 	
 	public Statistics(EventData dto) {
 		this.visitDate=dto.getVisitDate();

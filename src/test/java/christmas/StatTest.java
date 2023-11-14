@@ -15,8 +15,8 @@ import java.util.Map;
 
 public class StatTest {
 	
-	private int testdate=25; //디데이 3400 평일 8092 특별 1000 증정 25000 총 37492
-	private Map<String, Integer> testorders=new HashMap<>() {
+	private final int testdate=25; //디데이 3400 평일 8092 특별 1000 증정 25000 총 37492
+	private final Map<String, Integer> testorders=new HashMap<>() {
 		{
 			put("타파스",1); //애피타이저 5500
 			put("티본스테이크",2); //메인 110000
@@ -24,7 +24,7 @@ public class StatTest {
 			put("아이스크림",4); //디저트 20000 총합 315500
 		}
 	};
-	private EventData testdto=CREATE.dto();
+	private final EventData testdto=CREATE.dto();
 	
 	private Statistics teststat() {
 		testdto.setVisitDate(testdate);
